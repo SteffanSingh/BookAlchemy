@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  </head>
+  <body style= "display:grid;">
+      <h1 style="color:red; text-align:center;"> Book Alchemy Project </h1>
+
+
+
+<h2> The search result for keyword "{{keyword}}" are:</h2>
+  <ul style="display:flex;flex-wrap: wrap;">
+
+   {% for book in books %}
+    <div style="margin: 10px;">
+        <span><h3 style="text-align:center">{{ loop.index }}. Book: {{ book.title }}</h3></span>
+
+
+        <span>{% if book.author.id == book.author_id %}
+                <img src="{{book.book_cover}}" style="height:200px; width:150px;"/>
+
+        <h3>Author: {{book.author.name }}</h3>
+        <h3 style="text-align:center; color:blue;font-size:20px;"> {{book.publication_year}}</h3>
+
+            {% endif %}</span>
+
+
+
+    </div>
+    {% endfor %}
+  </ul>
+
+
+<form action="/">
+
+      <input type="submit" value="Back to HOME">
+
+  </form>
+
+
+  </body>
+
+
+</html>
