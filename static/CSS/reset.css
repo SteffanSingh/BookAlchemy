@@ -1,0 +1,107 @@
+   .wrapper {
+            background-color: #fff;
+            padding: 10px; /* Adjusted padding */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+.home{
+margin-left:550px;
+margin-bottom:10px;
+        color: red;
+        font-size:15px;
+        border-radius:10px;
+
+        background-color:pink;
+        cursor:pointer;
+}
+h1 {
+        font-size:40px;
+            text-align:center;
+            color:  #C0B80F ;
+        }
+
+        h1:hover{
+        color:Purple;
+        cursor:pointer;
+        }
+
+
+        svg:hover{
+        color:magenta;
+        }
+
+
+
+h2{
+color: blue;
+text-align:center;
+
+}
+#reset{
+color:red;
+
+}
+ #reset:hover{
+        color:red;
+       }
+     #signup{
+        color:red;
+        }
+#forgot{
+        margin-left:20px;
+        text-align:center;
+}
+        #signup:hover{
+        color:red;
+        }
+        .form-group {
+            margin-bottom: 10px; /* Adjusted margin */
+        }
+        .form-control-sm {
+            padding: 8px; /* Adjusted padding for smaller form controls */
+            font-size: 14px; /* Adjusted font size */
+        }
+        .btn-primary {
+            padding: 8px; /* Adjusted padding for smaller button */
+            font-size: 14px; /* Adjusted font size */
+        }
+        .home{
+margin-left:550px;
+margin-bottom:10px;
+        color: red;
+        font-size:15px;
+        border-radius:10px;
+
+        background-color:pink;
+        cursor:pointer;
+}
+#star-blink{
+text-align:center;
+color:green;
+font-size:30px;
+margin-bottom:0;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+#star-blink {
+  animation: blink 40s infinite;
+  color:green;
+}
+
+.text-center{
+font-size:25px;
+}
+.home{
+padding:5px;
+font-size:20px;
+}
+.home:hover{
+
+color:blue;
+}

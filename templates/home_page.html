@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Book Library</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" rel="stylesheet">
+    <link href="{{url_for('static', filename='style.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='home.css')}}" rel="stylesheet">
+
+    <style>
+    body{
+    background-color:#DAF7A6;
+     background-image: url('{{ url_for('static', filename='images/diggital-image.jpeg') }}');
+        background-size:cover;
+
+    }
+.alert {
+    margin-bottom: 20px; /* Adjust as needed */
+}
+
+    #signup-login:hover{
+    color:red;
+    }
+
+
+
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+#star-blink {
+  animation:  10s  ;
+  color:yellow  ;
+}
+
+
+
+
+
+    </style>
+</head>
+
+<body>
+<div style="display:flex; background-color:blue;justify-content:space-around;">
+
+    <a href="/login" style="text-decoration:none;">
+        <h1 style="color:yellow; text-decoration:none;
+
+         text-align:center;font-size:45px;padding-top:10px; ;">Book Library </h1></a>
+
+
+
+</div>
+
+
+<div class="container home-page">
+    <div class="container">
+        <div style="height:23px;margin-bottom:10px; ">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}" id="star-blink" role="alert" style="line-height: 1;
+                margin-left:450px;
+                 font-size: 18px;">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+</div>
+        <h3 style="color:red;text-align:center;">2024 Reading Challenge</h3>
+        <div class="container" style="display:flex;justify-content:center;">
+
+
+        </div>
+
+    </div>
+    <h4 style="text-align:center;color:#FF00B4  ;">All Category list</h4>
+
+
+    <ul class="container" style="display:flex;flex-wrap: wrap;">
+        {% for book in books %}
+        <div class="bg-light" style="margin: 10px;padding:4px; border-radius:10px;">
+            <a href="/login">
+
+                <img src="{{ book.book_cover }}" style="height: 200px;
+                    width: 150px; object-fit: cover;"/>
+            </a>
+
+            <span style="display:flex;">
+                <form action="/login">
+                    <input class="bg-primary" style="margin:5px; margin-left:15px;
+                        color:yellow; border-radius:10px; border:none;"
+                           type="submit" value="click to read">
+
+                </form>
+
+            </span>
+        </div>
+        {% endfor %}
+
+    </ul>
+    <ul style="display:flex;flex-wrap:wrap;list-style-type:none;">
+        <li>Fiction</li>
+        <li>Science</li>
+        <li>Christian</li>
+        <li>Art</li>
+        <li>Fantasy</li>
+        <li>History</li>
+        <li>Poetry</li>
+
+        <li>Thriller</li>
+        <li>Mystery</li>
+        <li>Comics</li>
+        <li>Biography</li>
+    </ul>
+</div>
+
+<div style="display:flex;justify-content:center;">
+    <form action="/signup" style="display:flex;justify-content:center;">
+        <input class="signup" style="text-align:center;
+            border-radius:10px;margin-right:20px; margin-left:200px;margin-bottom:50px;
+            background-color:#051B5F; color:yellow;font-size:30px;
+            border:none;" type="Submit" value="SignUp ">&nbsp;
+        <b style="color:red;marign-right:10px; font-size:15px;"></b>
+
+
+    </form>
+
+    <form action="/login">
+        <p style="text-align:center;color:#86BE23 ;font-size:20px;margin-right:20px;">Already a member?
+            <input class="signin" style="text-align:center;background-color:#051B5F; color:blue;
+                                border-radius:10px;border:none;" type="Submit"
+                   value="Login ">
+        </p>
+
+
+    </form>
+</div>
+
+<a class="bg-info" href="/users" id="login" style="
+         text-align:center; color: red;border:none; margin-bottom:200px;
+             margin-left:600px;
+         border-radius: 5px;  cursor: pointer;
+           ">All Users </a>
+
+</body>
+
+</html>
+
+

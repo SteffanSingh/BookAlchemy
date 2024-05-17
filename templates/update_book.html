@@ -6,7 +6,7 @@
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
           integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" rel="stylesheet">
-    <link href="{{url_for('static', filename='CSS/add_book.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='CSS/update_book.css')}}" rel="stylesheet">
 
     <style>
     .alert {
@@ -16,28 +16,12 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-primary">
-    <a class="navbar-brand bg-info" href="/user/books/{{user_id}}"
-       style="
-                    margin-left:20px;
-                    color:yellow;border:none;
-                     border-radius:10px;
-                     padding:5px;  "> Back to Library </a>
 
-    <a class="  " href="/user/books/{{user_id}}"
-       style="text-decoration:none;
-                    border:none;
-                     border-radius:10px;
-                     padding:5px;  ">
+        <a href="/bookDetails/{{user_id}}/{{ book_id }}"><h1 class="bg-info" style="  text-decoration:none;color:yellow;
 
-        <h1 style="color:yellow;padding-top:10px;text-decoration:none;margin-left:300px;
+         text-align:center;font-size:40px;">Book Library </h1></a>
 
-         text-align:center;font-size:45px;">Book Library </h1>
-    </a>
-
-
-</nav>
-<div style="height:23px;margin-left:330px; ">
+<div style="height:23px;margin-left:350px; ">
                         {% with messages = get_flashed_messages(with_categories=true) %}
                         {% if messages %}
                         {% for category, message in messages %}
@@ -50,28 +34,29 @@
                         {% endif %}
                         {% endwith %}
                     </div>
+
 <div class="container">
     <div class="row">
-        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <div style="margin: 10px;">
+
+                <img src="{{ book.book_cover }}" alt="Update the cover image for this book "
+                     style="height: 250px; width: 200px;  "/>
+
+        </div>
+        </div>
         <div class="col-md-6">
             <div class="wrapper">
-                <form action="/add_book/{{user_id}}" method="POST">
+                <form action="/user/{{user_id}}/book_update/{{book_id}}" method="POST">
 
                     <label for="title">Title:</label>
-                    <input id="title" name="title" required type="text"><br>
+                    <input id="title" name="title"  type="text" placeholder="{{title}}">
 
                     <label for="publication_year">Publication Year:</label>
-                    <input id="publication_year" name="publication_year"  type="date"><br>
+                    <input id="publication_year" name="publication_year"   type="date"><br>
 
                     <label for="isbn">ISBN:</label>
                     <input id="isbn" name="isbn" type="number"><br>
-
-                    <!--
-                    <label for="author">Author Name:</label>
-                 <input type="text" id="author " name="author"><br><br>
-
-
-                    -->
 
                     <label for="author">Author Name:</label>
                     <select id="author" name="author">
@@ -83,8 +68,19 @@
 
                     </select><br><br>
 
+                    <label for="book-cover">Book Cover Pic:</label>
+                    <input id="book-cover" name="book-cover" type="text"><br>
 
-                    <input class="btn btn-block btn-primary" id="add-book" type="submit" value="Add Book">
+                    <label for="description">Description :</label>
+                    <textarea id="description" name="description"
+                              rows="2" placeholder="Enter the description"   ></textarea><br>
+
+                    <label for="rating">Rating:</label>
+                    <input id="rating" name="rating" placeholder="Enter your rating" step="0.1" type="number"><br>
+
+
+                    <input class="btn btn-block btn-primary" id="update-book"
+                           type="submit" value="Update Book details">
 
 
                 </form>
@@ -117,6 +113,9 @@
                type="submit" value="Add author">
 
     </form>
+<a href="/logout" id="login"
+       style="margin-bottom: 50px; margin-left: 50px;text-align:center; color: red; background-color: #ff69b4; border: 2px solid #ff69b4; border-radius: 5px; cursor: pointer;">Sign
+        out</a>
 </div>
 </body>
 </html>

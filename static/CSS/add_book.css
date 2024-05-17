@@ -1,0 +1,50 @@
+body {
+  background-color: #D3B6B0;
+  font-family: 'Oswald', sans-serif;
+}
+
+.wrapper {
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+#isbn{
+
+width:250px;
+margin-left:85px;
+
+}
+
+input{
+margin-bottom:20px;}
+
+#title{
+
+width:250px;
+margin-left:95px;
+
+}
+
+#publication_year
+{
+
+width:250px;
+margin-left:10px;
+
+}
+
+
+#author{
+height:30px;
+width:250px;
+margin-left:30px;
+}
+
+
+#add-book{
+border-radius:10px;
+width:250px;
+margin-left:130px;
+}

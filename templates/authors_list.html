@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Book Library</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" rel="stylesheet">
+    <link href="{{url_for('static', filename='CSS/style.css')}}" rel="stylesheet">
+    <style>
+        .alert {
+            margin-left: 100px;
+            margin-bottom: 10px; /* Adjust as needed */
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <a class="navbar-brand bg-info" href="/user/books/{{user.id}}"
+       style="margin-bottom:20px; margin-left:20px; color:yellow;border:none; border-radius:10px; padding:5px;">
+        Back to {{user.name}} books List</a>
+    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+            data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <h1 style="color:#950EB7; text-align:center;margin-left:320px;">Book Library</h1>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<h3 style="text-align:center; color:#CA5E0A;font-weight:700;">Authors List</h3>
+<div style="height:23px;margin-left:300px;margin-bottom:20px;">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}" id="star-blink" role="alert"
+         style="line-height: 1;margin-left:20px;color:green; font-size: 20px;">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+</div>
+<ul class="container" style="display:flex;flex-wrap: wrap;">
+    {% for author in authors %}
+    <li style="margin: 10px;list-style-type:none; border-radius:10px; padding:20px; background:#fff;">
+        <h3 style="text-align: center; color: blue; font-size: 20px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+            {% for word_group in author.name.split()|batch(3) %}
+            <span>{{ word_group|join(" ") }}</span>
+            {% if not loop.last %}<br>{% endif %}
+            {% endfor %}
+        </h3>
+        <form class="delete-form" action="/author/{{user_id}}/{{author.id}}/delete" method="POST">
+            <input style="margin:5px; color:red; border-radius:10px;border:none;" type="submit" value="Delete">
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+
+<script src="{{ url_for('static', filename='JS/author.js') }}"></script>
+</body>
+</html>

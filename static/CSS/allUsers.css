@@ -1,0 +1,88 @@
+   body {
+            background-color: #ADD8E6;
+            color: #333;
+            padding: 10px;
+            background-image: url('{{ url_for('static', filename='image/17.jpeg') }}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+
+
+        h2 {
+            text-align: center;
+            color: yellow;
+            font-size: 30px;
+        }
+
+        h3 {
+            color: magenta;
+            font-size: 20px;
+            margin-bottom: 20px;
+            margin-top: 40px;
+        }
+
+        ol {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            font-size: 30px;
+            color: magenta;
+        }
+
+#add{
+background-color:white;
+color:magenta;
+
+}
+h1 {
+     margin-top:0;
+        font-size:60px;
+            text-align:center;
+            color: #dc3545;
+        }
+        h1:hover{
+        color:Purple;
+        cursor:pointer;
+        }
+
+        svg:hover{
+        color:magenta;
+        }
+#home{
+color:red;
+background-color:purple;
+}
+        ol li {
+            margin-bottom: 20px;
+        }
+
+        ol li strong em {
+            font-size: 20px;
+            color: red;
+        }
+
+        ol li a {
+            font-size: 20px;
+            margin-right: 20px;
+            color: magenta;
+        }
+
+        input[type="submit"] {
+            display: block;
+            margin: 0 auto; /* Center the button horizontally */
+            margin-top: 20px; /* Add margin from the top */
+            background-color: lightgrey;
+            color: red;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #dc3545;
+            color: white;
+        }
