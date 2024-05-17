@@ -1,0 +1,52 @@
+body {
+  background-color: #D3B6B0;
+  font-family: 'Oswald', sans-serif;
+}
+
+.wrapper {
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+#name{
+
+width:250px;
+margin-left:5px;
+
+
+}
+
+input{
+margin-bottom:20px;
+}
+
+#date_of_death{
+
+width:250px;
+
+
+}
+
+#birthdate
+{
+
+width:250px;
+margin-left:35px;
+
+}
+
+
+#author{
+height:30px;
+width:250px;
+margin-left:30px;
+}
+
+
+#add-author{
+border-radius:10px;
+width:250px;
+margin-left:110px;
+}

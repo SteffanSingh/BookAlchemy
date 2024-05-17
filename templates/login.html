@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Book library</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="{{url_for('static', filename='CSS/login.css')}}" rel="stylesheet">
+
+    <style>
+ body{
+    background-image: url('{{ url_for('static', filename='images/diggital-image.jpeg') }}');
+        background-size:cover;
+}
+.navbar{
+margin-bottom:10px;
+}
+.alert {
+    margin-bottom: 5px; /* Adjust as needed */
+}
+
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <a class="navbar-brand bg-info" href="{{  url_for('home') }}"
+       style="margin-bottom:20px;
+                    margin-left:20px;
+                    color:yellow;border:none;
+                     border-radius:10px;
+                     padding:5px;  "> Home</a>
+
+    <a class="  " href="{{  url_for('home') }}"
+       style="text-decoration:none;
+                    border:none;
+                     border-radius:10px;
+                     padding:5px;  ">
+
+        <h1 style="color:yellow;padding-top:20px;text-decoration:none;margin-left:400px;
+
+         text-align:center;font-size:45px;">Book Library </h1>
+    </a>
+
+
+</nav>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="wrapper">
+                <div style="height:30px; ">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                    {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}" id="star-blink" role="alert" style="line-height: 1;
+                 font-size: 20px;">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                </div>
+                <h2>Log in</h2>
+
+
+                <form action="/login" id="login-form" method="POST">
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input
+                                class="form-control form-control-sm"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email"
+                                type="email"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input
+                                class="form-control form-control-sm"
+                                id="password"
+                                name="password"
+                                placeholder="Enter your password"
+                                type="password"
+                        >
+                    </div>
+                    <input class="btn btn-block btn-primary" type="submit" value="Login">
+                </form>
+                <br>
+                <p id="forgot">Forgot Password?
+
+                    <a href="/resetPassword" id="reset">Click</a> <a href="/resetPassword"> here</a></p>
+                <p class="text-center">Not registered? <a href="/signup" id="signup">SignUp</a> <a href="/signup">
+                    here</a></p>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='JS/login.js') }}"></script>
+
+</body>
+</html>

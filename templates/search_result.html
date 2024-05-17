@@ -1,46 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  </head>
-  <body style= "display:grid;">
-      <h1 style="color:red; text-align:center;"> Book Alchemy Project </h1>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" rel="stylesheet">
+    <link href="{{url_for('static', filename='CSS/search.css')}}" rel="stylesheet">
+</head>
 
 
+<body style="display:grid;">
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <a class="navbar-brand bg-info" href="/user/books/{{user_id}}"
+       style="
+                    margin-left:20px;
+                    color:yellow;border:none;
+                     border-radius:10px;
+                     padding:5px;  "> Back to Library </a>
 
-<h2> The search result for keyword "{{keyword}}" are:</h2>
-  <ul style="display:flex;flex-wrap: wrap;">
+    <a class="  " href="/user/books/{{user_id}}"
+       style="text-decoration:none;
+                    border:none;
+                     border-radius:10px;
+                     padding:5px;  ">
 
-   {% for book in books %}
+        <h1 style="color:yellow;padding-top:10px;text-decoration:none;margin-left:300px;
+
+         text-align:center;font-size:45px;">Book Library </h1>
+    </a>
+
+
+</nav>
+
+<h3 style="color:red;"> The search result for keyword
+    <mark> <em> <b>{{keyword}}</b> </em> </mark>
+    are:
+</h3>
+<ul style="display:flex;flex-wrap: wrap;">
+
+    {% for book in books %}
     <div style="margin: 10px;">
-        <span><h3 style="text-align:center">{{ loop.index }}. Book: {{ book.title }}</h3></span>
 
 
-        <span>{% if book.author.id == book.author_id %}
+
+        <span>
+                {% if book.author.id == book.author_id %}
                 <img src="{{book.book_cover}}" style="height:200px; width:150px;"/>
 
-        <h3>Author: {{book.author.name }}</h3>
-        <h3 style="text-align:center; color:blue;font-size:20px;"> {{book.publication_year}}</h3>
-
-            {% endif %}</span>
-
-
-
+                <!--<h4 style="text-align:center; color:red;
+                            font-size:25px;"> {{ book.title }}</h4>
+                <h3 style="text-align:center; color:blue;
+                            font-size:15px;">
+                            {{book.publication_year}}</h3>-->
+                {% endif %}</span>
+        <form action="/bookDetails/{{ user_id }}/{{ book.book_id }}">
+            <input class="bg-info"
+                   style="margin:5px;margin-left:15px;
+                       color:yellow; border-radius:10px;
+                        border:none;" type="submit"
+                   value="Book Details">
+        </form>
     </div>
     {% endfor %}
-  </ul>
+</ul>
 
 
-<form action="/">
+<form action="/user/books/{{user_id}}">
 
-      <input type="submit" value="Back to HOME">
+    <input class="bg-info" type="submit" style="
+                    margin-left:20px;
+                    color:white;border:none;
+                     border-radius:10px;
+                     padding:5px;  " value="Back to book library">
 
-  </form>
+</form>
 
 
-  </body>
+</body>
 
 
 </html>
