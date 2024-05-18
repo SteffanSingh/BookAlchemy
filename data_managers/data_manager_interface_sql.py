@@ -7,6 +7,14 @@ from flask import Flask
 from data_managers.data_models import User, Book, Author, Review, user_book_association
 from .data_models import db
 from flask_sqlalchemy import SQLAlchemy
+import os
+
+
+# Get the current directory of app.py
+base_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Construct the path to the database file
+db_path = os.path.join(base_dir, 'data', 'library.sqlite3')
 
 
 

@@ -1,5 +1,4 @@
 from datetime import datetime
-import json
 import requests
 from flask import Flask, render_template, request, redirect, url_for, flash
 from Implementation.users_books_app import userBook_app
@@ -8,7 +7,10 @@ from data_managers.data_manager_interface_sql import SQLiteDataManager
 from data_managers.data_models import Review, Author, Book, db
 from Implementation.authors_app import authors_app
 from Implementation.review_app import review_app
+import os
 
+
+# Get the current directory of app.py
 
 app = Flask(__name__)
 app.register_blueprint(auth_app)
