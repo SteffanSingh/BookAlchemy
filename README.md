@@ -1,6 +1,6 @@
 # Book Library
 
-## A digital book library, where a book lovers can make a vast collection of books list of his own choice of auhtors and book genres, also can modify the book library (like adding, deleting and updating the book details). 
+## A digital book library, where a book lovers can make a vast collection of books of his own choice of auhtors and book genres, also can modify the book library (like adding, deleting and updating the book details). 
   * It is a server-side-rendering project.
   * Searching book by title, publicaiton year and author.
   * Sort the books for a particular user by book title and author.
