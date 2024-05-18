@@ -12,6 +12,14 @@
     .alert {
             margin-bottom: 20px; /* Adjust as needed */
         }
+        label{
+        margin-top:10px;
+        }
+
+        h6{
+        color:blue;
+        font-size:15px;
+        }
     </style>
 </head>
 <body>
@@ -55,36 +63,13 @@
         <div class="col-md-3"></div>
         <div class="col-md-6">
             <div class="wrapper">
-                <form action="/add_book/{{user_id}}" method="POST">
-
+                <form action="/search_new_book/{{user_id}}" method="POST">
+                    <h6>Searching can take upto a minute, please wait for the result.</h6><br>
                     <label for="title">Title:</label>
                     <input id="title" name="title" required type="text"><br>
 
-                    <label for="publication_year">Publication Year:</label>
-                    <input id="publication_year" name="publication_year"  type="date"><br>
 
-                    <label for="isbn">ISBN:</label>
-                    <input id="isbn" name="isbn" type="number"><br>
-
-                    <!--
-                    <label for="author">Author Name:</label>
-                 <input type="text" id="author " name="author"><br><br>
-
-
-                    -->
-
-                    <label for="author">Author Name:</label>
-                    <select id="author" name="author">
-
-                        {% for each in authors %}
-                        <option value="{{each.name}}"> {{ each.name }}</option> >
-
-                        {% endfor %}
-
-                    </select><br><br>
-
-
-                    <input class="btn btn-block btn-primary" id="add-book" type="submit" value="Add Book">
+                    <input class="btn btn-block btn-primary" id="add-book" type="submit" value="Search Book">
 
 
                 </form>
@@ -93,30 +78,20 @@
         <div class="col-md-3"></div>
     </div>
 </div>
+<hr>
+<div style="display:flex;justify-content:center; margin-top:40px;">
 
-<div style="display:flex;justify-content:space-around; margin-top:40px;">
-
-    <form action="/search_new_book/{{user_id}}">
-
-        <input style="margin:5px;margin-bottom:20px;
-                        color:#370337 ;background-color:#1092BE ;
-                        border-radius:10px;
-                    border:none;" type="submit"
-               value="Search new book">
-
-    </form>
+<a href="/add_book/{{ user_id }}">
+        <button style="margin:5px;margin-bottom:20px; color:purple; border-radius:10px;border:none;">
+            Back to <em><b>Add Book</b></em> Page
+        </button>
+    </a>
     <a href="/user/books/{{ user_id }}">
         <button style="margin:5px;margin-bottom:20px; color:purple; border-radius:10px;border:none;">
             Back to <em><b>{{ user.name }}</b></em> Library
         </button>
     </a>
-    <form action="/add_author/{{user_id}}">
 
-        <input style="margin:5px;margin-bottom:20px;background-color:#1092BE ;
-                    color:#fff ; border-radius:10px; border:none;"
-               type="submit" value="Add author">
-
-    </form>
 </div>
 </body>
 </html>
