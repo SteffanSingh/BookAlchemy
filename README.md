@@ -5,7 +5,7 @@
   * Searching book by title, publicaiton year and author.
   * Sort the books for a particular user by book title and author.
   * Authentication implemented (Signup, Signin, reset password).
-  * Technologies : Python| Flask| SQL| Jinja2| HTML| CSS.
+  * Languages and tools : Python| Flask| SQL| Jinja2| HTML| CSS.
     
 
 <img src="https://github.com/SteffanSingh/BookAlchemy/blob/7d60c39e60bcec63115ba7356160c4c65bae4229/Project-Images/bookLibrary1.png"  alt="Book alchemy home page">
