@@ -1,11 +1,10 @@
 from datetime import datetime
-
 import requests
 from flask import request, flash, render_template, redirect, url_for, Blueprint
-
 from Implementation.reusable_funciton import get_book_details
 from data_managers.data_manager_interface_sql import SQLiteDataManager
 from data_managers.data_models import Author, Book
+
 
 userBook_app = Blueprint("userBook_app", __name__)
 

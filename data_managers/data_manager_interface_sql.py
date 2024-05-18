@@ -42,6 +42,9 @@ class SQLiteDataManager(DataManagerInterface):
         else:
             return None
 
+    def home_books(self):
+        books = db.session.query(Book).limit(18)
+        return books
     def add_user(self, user):
         db.session.add(user)
         db.session.commit()

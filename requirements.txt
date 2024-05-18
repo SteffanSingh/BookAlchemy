@@ -1,0 +1,11 @@
+
+Flask
+Werkzeug
+json
+requests
+flask_sqlalchemy
+sqlalchemy
+flask-login
+flask_bcrypt
+sqlalchemy.orm
+datetime
