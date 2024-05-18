@@ -2,7 +2,6 @@ from datetime import datetime
 import json
 import requests
 from flask import Flask, render_template, request, redirect, url_for, flash
-from flask_bcrypt import Bcrypt
 from Implementation.users_books_app import userBook_app
 from Authentication.authentication import auth_app,login_manager
 from data_managers.data_manager_interface_sql import SQLiteDataManager, session

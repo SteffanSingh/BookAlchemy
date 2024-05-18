@@ -31,11 +31,11 @@ def update_user(user_id):
             user_name = request.form.get("name")
             user_email = request.form.get("email")
             user_profile_image = request.form.get("profile")
-            user_to_update.name = user_name
-            user_to_update.email = user_email
+            user_to_update.name = user_name if user_name else user_to_update.name
+            user_to_update.email = user_email if user_email else user_to_update.email
             user_to_update.profile_image = user_profile_image if user_profile_image else " "
             data_manager.commit_change()
-            flash("profile has been updated successfully !")
+            flash(f"""{user_to_update.name}´s profile has been updated successfully !""")
             return redirect(url_for("userBook_app.update_user", user_id=user_id))
         return render_template("update_user.html", user_id=user_id,user=user_to_update)
     except Exception as error:
