@@ -31,16 +31,18 @@ data_manager = SQLiteDataManager(app)
 @app.route("/")
 def home():
     """Return the list of all authors and limited books to display on homepage."""
-    books = session.query(Book).limit(18)
-    authors = data_manager.list_all_authors()
-    return render_template("home_page.html", books=books, authors=authors)
 
-
+    try:
+        books = session.query(Book).limit(18)
+        authors = data_manager.list_all_authors()
+        return render_template("home_page.html", books=books, authors=authors)
+    except Exception as error:
+        return render_template("error.html", error=error)
 
 
 if __name__ == "__main__":
     """To create the table in the database, we need to run these 2 lines of codes, once 
         table is creaed then we can comment these lines."""
-    with app.app_context():
-        db.create_all()
+    #with app.app_context():
+     #   db.create_all()
     app.run(host="0.0.0.0", port=5000)
