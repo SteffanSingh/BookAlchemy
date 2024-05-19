@@ -8,12 +8,6 @@
 - **Authentication:** Signup, signin, and password reset functionalities are implemented.
 - **Technologies Used:** Python, Flask, SQL, Jinja2, HTML, CSS.
 
-<p align="center">
-  <img src="https://github.com/SteffanSingh/BookAlchemy/blob/7d60c39e60bcec63115ba7356160c4c65bae4229/Project-Images/bookLibrary1.png" alt="Book Library Home Page">
-  <img src="https://github.com/SteffanSingh/BookAlchemy/blob/7d60c39e60bcec63115ba7356160c4c65bae4229/Project-Images/bookdetails.png" alt="Book Details Page">
-  <img src="https://github.com/SteffanSingh/BookAlchemy/blob/7d60c39e60bcec63115ba7356160c4c65bae4229/Project-Images/updatepage.png" alt="Book Update Page">
-</p>
-
 ## Table of Contents
 
 - [Features](#features)
@@ -22,6 +16,7 @@
 - [API Endpoints](#api-endpoints)
 - [Contributing](#contributing)
 - [License](#license)
+- [Demo](#demo)
 
 ## Features
 
@@ -121,3 +116,17 @@ We welcome contributions! Please follow these steps:
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Demo
+
+### Project Demo Video
+
+Check out the [project demo video](https://www.youtube.com/watch?v=gKQUCXWRmWI&t=182s) to see the Book Library application in action.
+
+### Project Demo Images
+
+<p align="center">
+  <img src="https://github.com/SteffanSingh/BookAlchemy/blob/7d60c39e60bcec63115ba7356160c4c65bae4229/Project-Images/bookLibrary1.png" alt="Book Library Home Page">
+  <img src="https://github.com/SteffanSingh/BookAlchemy/blob/7d60c39e60bcec63115ba7356160c4c65bae4229/Project-Images/bookdetails.png" alt="Book Details Page">
+  <img src="https://github.com/SteffanSingh/BookAlchemy/blob/7d60c39e60bcec63115ba7356160c4c65bae4229/Project-Images/updatepage.png" alt="Book Update Page">
+</p>
