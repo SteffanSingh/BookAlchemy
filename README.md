@@ -24,7 +24,7 @@
 - Add, update, delete, and view book details
 - Search for books by title, publication year, and author
 - Sort books by title and author
-- Responsive design with HTML and CSS
+- Movies recommendation powered by ChatGPT AI
 
 ## Installation
 
