@@ -24,7 +24,7 @@
 - Add, update, delete, and view book details
 - Search for books by title, publication year, and author
 - Sort books by title and author
-- Movies recommendation powered by ChatGPT AI
+- Responsive design with HTML and CSS
 
 ## Installation
 
@@ -42,7 +42,7 @@
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/book-library.git
+    git clone https://github.com/SteffanSingh/book-library.git
     cd book-library
     ```
 
