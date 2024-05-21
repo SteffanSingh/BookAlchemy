@@ -24,7 +24,7 @@
 - Add, update, delete, and view book details
 - Search for books by title, publication year, and author
 - Sort books by title and author
-- Add , update , delte reviews with view book reviews
+- Add, update, delete reviews with view book reviews
 
 ## Installation
 
@@ -130,3 +130,7 @@ Check out the [project demo video](https://www.youtube.com/watch?v=gKQUCXWRmWI&t
   <img src="https://github.com/SteffanSingh/BookAlchemy/blob/7d60c39e60bcec63115ba7356160c4c65bae4229/Project-Images/bookdetails.png" alt="Book Details Page">
   <img src="https://github.com/SteffanSingh/BookAlchemy/blob/7d60c39e60bcec63115ba7356160c4c65bae4229/Project-Images/updatepage.png" alt="Book Update Page">
 </p>
+
+### Live Demo
+
+Check out the live demo of the application [http://steffan.pythonanywhere.com/](http://steffan.pythonanywhere.com/).
