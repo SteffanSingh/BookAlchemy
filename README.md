@@ -81,6 +81,12 @@
 4. Use the search bar to find books.
 5. Sort books using the dropdown menu.
 
+### Deployment :
+
+Book library application is currently deployed on Pythonanywherere.
+you can access the live version of the application at [http://steffan.pythonanywhere.com/](http://steffan.pythonanywhere.com/).
+
+
 ## API Endpoints
 
 ### User Endpoints
@@ -131,6 +137,3 @@ Check out the [project demo video](https://www.youtube.com/watch?v=gKQUCXWRmWI&t
   <img src="https://github.com/SteffanSingh/BookAlchemy/blob/7d60c39e60bcec63115ba7356160c4c65bae4229/Project-Images/updatepage.png" alt="Book Update Page">
 </p>
 
-### Live Demo
-
-Check out the live demo of the application [http://steffan.pythonanywhere.com/](http://steffan.pythonanywhere.com/).
