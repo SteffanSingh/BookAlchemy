@@ -1,6 +1,8 @@
 # Book Library
 
-## A digital book library for book lovers to create and manage a vast collection of books based on their favorite authors and genres. Users can add, delete, and update book details as needed.
+## Introduction
+
+Welcome to the Book Library, a digital haven for book lovers to create and manage a vast collection of books based on their favorite authors and genres. Users can add, delete, and update book details as needed.
 
 - **Server-Side Rendering:** The application uses server-side rendering for dynamic content.
 - **Search Functionality:** Search for books by title, publication year, and author.
@@ -10,14 +12,48 @@
 
 ## Table of Contents
 
+- [Introduction](#introduction)
+- [Description](#description)
+- [Project Structure](#project-structure)
 - [Features](#features)
 - [Installation](#installation)
+  - [Prerequisites](#prerequisites)
+  - [Installation Steps](#installation-steps)
 - [Usage](#usage)
 - [Deployment](#deployment)
 - [API Endpoints](#api-endpoints)
 - [Contributing](#contributing)
 - [License](#license)
 - [Demo](#demo)
+
+## Description
+
+A digital book library for book lovers to create and manage a vast collection of books based on their favorite authors and genres. Users can add, delete, and update book details as needed.
+
+## Project Structure
+
+The Book Library project is structured as follows:
+
+├── .data
+├── .data_manager
+├── .helpers
+├── .routes
+├── .static
+├── .templates
+├── .env
+├── app.py
+├── readme.md
+├── requirements.txt
+
+
+- `.data`: Contains the SQLite database file and other data files.
+- `.data_manager`: Includes data management modules for handling book data and queries.
+- `.helpers`: Helper modules, including authentication and utilities.
+- `.routes`: Routing modules for API endpoints and user handling.
+- `.static`: CSS files and image/icon assets.
+- `.templates`: HTML templates for web pages.
+- `.env`: Configuration file for environment variables.
+- `app.py`: The main application file that connects routes and manages error handling.
 
 ## Features
 
@@ -38,7 +74,7 @@
 - Jinja2
 - Other dependencies listed in `requirements.txt`
 
-### Steps
+### Installation Steps
 
 1. Clone the repository:
 
@@ -82,11 +118,9 @@
 4. Use the search bar to find books.
 5. Sort books using the dropdown menu.
 
-### Deployment :
+## Deployment
 
-Book library application is currently deployed on Pythonanywherere.
-you can access the live version of the application at [http://steffan.pythonanywhere.com/](http://steffan.pythonanywhere.com/).
-
+The Book Library application is currently deployed on PythonAnywhere. You can access the live version of the application at [http://steffan.pythonanywhere.com/](http://steffan.pythonanywhere.com/).
 
 ## API Endpoints
 
@@ -137,4 +171,3 @@ Check out the [project demo video](https://www.youtube.com/watch?v=gKQUCXWRmWI&t
   <img src="https://github.com/SteffanSingh/BookAlchemy/blob/7d60c39e60bcec63115ba7356160c4c65bae4229/Project-Images/bookdetails.png" alt="Book Details Page">
   <img src="https://github.com/SteffanSingh/BookAlchemy/blob/7d60c39e60bcec63115ba7356160c4c65bae4229/Project-Images/updatepage.png" alt="Book Update Page">
 </p>
-
