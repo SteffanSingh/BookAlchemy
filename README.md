@@ -34,15 +34,7 @@ A digital book library for book lovers to create and manage a vast collection of
 
 The Book Library project is structured as follows:
 
-├── .Authentication
-├── .data
-├── .data_manager
-├── .Implementation
-├── .static
-├── .templates
-├── app.py
-├── readme.md
-├── requirements.txt
+<img src="https://github.com/SteffanSingh/BookAlchemy/blob/7f188b541c9c7a9e154aaad36a2a8a6ec65eb988/Project-Images/project-structure.png" alt="project structure">
 
 - `.Authentication`: Contains the python file for signup, signin, reset password.
 - `.data`: Contains the SQLite database file and other data files.
