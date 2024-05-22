@@ -13,7 +13,7 @@
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Deployment](#Deployment)
+- [Deployment](#deployment)
 - [API Endpoints](#api-endpoints)
 - [Contributing](#contributing)
 - [License](#license)
