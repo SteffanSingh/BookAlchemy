@@ -56,13 +56,17 @@
                         By:</label>
                     <select id="sort_by" name="sort_by"
                             style="color: blue; border-radius: 10px; border:none; padding: 5px; cursor: pointer; transition: background-color 0.3s, border-color 0.3s;">
+        <option value="none" {% if sort_by is not defined or sort_by == 'none' %}selected{% endif %}>Choose Option</option>
+
                         <option {% if sort_by == 'title' %}selected{% endif %} value="title">Book title</option>
                             <option {% if sort_by == 'author' %}selected{% endif %} value="author">Author</option>
 
                     </select>
-                    <input style="color: green; border-radius: 10px; border:none; padding: 5px; cursor: pointer; transition: background-color 0.3s, border-color 0.3s;"
+
+
+                    <!-- <input style="color: green; border-radius: 10px; border:none; padding: 5px; cursor: pointer; transition: background-color 0.3s, border-color 0.3s;"
                            type="submit"
-                           value="Sort">
+                           value="Sort">-->
                 </form>
             </li>
             <li class="nav-item" style="display:flex;justify-content:center;">
@@ -134,11 +138,7 @@
 </div>
 
 
-<<<<<<< HEAD
 <script src="{{ url_for('static', filename='JS/main.js') }}">
-=======
-<script src="{{ url_for('static', filename='Js/main.js') }}">
->>>>>>> b43b0d5f54deb0a1d2187be5d36d26574a8578eb
 
 </script>
 
