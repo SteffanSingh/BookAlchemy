@@ -7,6 +7,17 @@ from flask import Flask
 from data_managers.data_models import User, Book, Author, Review, user_book_association
 from .data_models import db
 from flask_sqlalchemy import SQLAlchemy
+<<<<<<< HEAD
+=======
+import os
+
+
+# Get the current directory of app.py
+base_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Construct the path to the database file
+db_path = os.path.join(base_dir, 'data', 'library.sqlite3')
+>>>>>>> b43b0d5f54deb0a1d2187be5d36d26574a8578eb
 
 
 
@@ -42,6 +53,12 @@ class SQLiteDataManager(DataManagerInterface):
         else:
             return None
 
+<<<<<<< HEAD
+=======
+    def home_books(self):
+        books = db.session.query(Book).limit(18)
+        return books
+>>>>>>> b43b0d5f54deb0a1d2187be5d36d26574a8578eb
     def add_user(self, user):
         db.session.add(user)
         db.session.commit()

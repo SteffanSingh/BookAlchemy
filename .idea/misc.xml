@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (BookAlchemy)" project-jdk-type="Python SDK" />
+=======
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (BookAlchemy) (2)" project-jdk-type="Python SDK" />
+>>>>>>> b43b0d5f54deb0a1d2187be5d36d26574a8578eb
   <component name="PyCharmProfessionalAdvertiser">
     <option name="shown" value="true" />
   </component>

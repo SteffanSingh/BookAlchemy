@@ -2,6 +2,9 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+<<<<<<< HEAD
     <mapping directory="$PROJECT_DIR$/BookAlchemy" vcs="Git" />
+=======
+>>>>>>> b43b0d5f54deb0a1d2187be5d36d26574a8578eb
   </component>
 </project>

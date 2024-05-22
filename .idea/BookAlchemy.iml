@@ -4,7 +4,11 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
+<<<<<<< HEAD
     <orderEntry type="inheritedJdk" />
+=======
+    <orderEntry type="jdk" jdkName="Python 3.11 (BookAlchemy) (2)" jdkType="Python SDK" />
+>>>>>>> b43b0d5f54deb0a1d2187be5d36d26574a8578eb
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

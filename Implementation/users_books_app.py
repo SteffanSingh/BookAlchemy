@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from flask import Flask, request, flash, render_template, redirect, url_for, Blueprint
 from data_managers.data_manager_interface_sql import session, SQLiteDataManager, database
 from data_managers.data_models import User, Author, Book, Review
@@ -5,6 +6,15 @@ from Implementation.reusable_funciton import get_book_details
 import requests
 from datetime import datetime
 from flask_login import LoginManager, login_user, logout_user, login_required
+=======
+from datetime import datetime
+import requests
+from flask import request, flash, render_template, redirect, url_for, Blueprint
+from Implementation.reusable_funciton import get_book_details
+from data_managers.data_manager_interface_sql import SQLiteDataManager
+from data_managers.data_models import Author, Book
+
+>>>>>>> b43b0d5f54deb0a1d2187be5d36d26574a8578eb
 
 userBook_app = Blueprint("userBook_app", __name__)
 
@@ -27,6 +37,7 @@ def update_user(user_id):
     try:
         user_to_update = data_manager.get_user(user_id)
         if request.method == "POST":
+<<<<<<< HEAD
 
             user_name = request.form.get("name")
             user_email = request.form.get("email")
@@ -38,6 +49,18 @@ def update_user(user_id):
             flash("profile has been updated successfully !")
             return redirect(url_for("userBook_app.update_user", user_id=user_id))
         return render_template("update_user.html", user_id=user_id,user=user_to_update)
+=======
+            user_name = request.form.get("name")
+            user_email = request.form.get("email")
+            user_profile_image = request.form.get("profile")
+            user_to_update.name = user_name if user_name else user_to_update.name
+            user_to_update.email = user_email if user_email else user_to_update.email
+            user_to_update.profile_image = user_profile_image if user_profile_image else " "
+            data_manager.commit_change()
+            flash(f"""{user_to_update.name}´s profile has been updated successfully !""")
+            return redirect(url_for("userBook_app.update_user", user_id=user_id))
+        return render_template("update_user.html", user_id=user_id, user=user_to_update)
+>>>>>>> b43b0d5f54deb0a1d2187be5d36d26574a8578eb
     except Exception as error:
         return render_template("error.html")
 
@@ -148,8 +171,19 @@ def book_add(user_id):
                     description=" ",
                     rating=0
                 )
+<<<<<<< HEAD
                 user.book.append(book)
                 data_manager.add_book(book)
+=======
+
+                book_exist = data_manager.book_exist_or_not(title.title())
+                if not book_exist:
+                    data_manager.add_book(book)
+                    user.book.append(book)
+                else:
+                    user.book.append(book_exist)
+                    data_manager.commit_change()
+>>>>>>> b43b0d5f54deb0a1d2187be5d36d26574a8578eb
             books = data_manager.list_user_books(user_id)
             authors = data_manager.list_all_authors()
             flash(f"""Book "{title.title()}" has been successfully added !""")
@@ -159,6 +193,103 @@ def book_add(user_id):
         return render_template("error.html", error=error)
 
 
+<<<<<<< HEAD
+=======
+@userBook_app.route("/search_new_book/<int:user_id>", methods=["GET", "POST"])
+def search_new_book(user_id):
+    try:
+        user = data_manager.get_user(user_id)
+        if request.method == "POST":
+            title = request.form.get("title")
+            book_exist = data_manager.book_exist_or_not(title.title())
+            if not book_exist:
+                bookDetails = get_book_details(title)
+                if bookDetails:
+                    publication_year_data = get_book_details(title)[3][:4]
+                    description = get_book_details(title)[4]
+                    rating = get_book_details(title)[5]
+                    isbn = get_book_details(title)[0]
+                    book_cover_image = get_book_details(title)[1]
+                    author_names = get_book_details(title)[2]
+                    author_info_api_url = f"https://en.wikipedia.org/wiki/{author_names[0].replace(' ', '_')}"
+                    response = requests.get(author_info_api_url)
+                    author_exist = data_manager.author_exist_or_not(author_names[0].title())
+                    if (not author_exist) and (Author.name not in author_names):
+                        author = Author(
+                            name=author_names[0].title(),
+                            birth_date=None,
+                            date_of_death=None
+                        )
+                        data_manager.add_author(author)
+                        author_id = author.id
+                    else:
+                        author_id = author_exist.id
+                    if publication_year_data and publication_year_data != "N/A":
+                        if publication_year_data and len(publication_year_data) > 4:
+                            if len(publication_year_data) == 7:
+                                formatted_date_string = publication_year_data + '-01'
+                                publication_year = datetime.strptime(formatted_date_string, "%Y-%m-%d")
+                            else:
+                                publication_year = datetime.strptime(publication_year_data, "%Y-%m-%d")
+                        else:
+                            publication_new_year = f"{int(publication_year_data)}-01-01"
+                            publication_year = datetime.strptime(publication_new_year, "%Y-%m-%d")
+                    else:
+                        publication_year = datetime.strptime("2000-01-01", "%Y-%m-%d")
+                    book_exist = data_manager.book_exist_or_not(title.title())
+                    if book_exist in user.book:
+
+                        flash(f"""   Book Already exists in the {user.name}´s library !""")
+                        return render_template("search_new_book_result.html", user=user, book=book_exist,
+                                               user_id=user_id)
+                    else:
+                        book = Book(
+                            title=title.title(),
+                            publication_year=publication_year,
+                            isbn=isbn,
+                            author_id=author_id,
+                            book_cover=book_cover_image,
+                            description=description,
+                            rating=rating
+                        )
+
+                        book_exist = data_manager.book_exist_or_not(title.title())
+                        if not book_exist:
+                            data_manager.add_book(book)
+                            user.book.append(book)
+                        else:
+                            user.book.append(book_exist)
+                            data_manager.commit_change()
+                        return render_template("search_new_book_result.html", user=user, book=book, user_id=user_id)
+                else:
+                    return render_template("book_not_found.html")
+            else:
+                if book_exist in user.book:
+                    flash(f"""   Book Already exists in the {user.name}´s library !""")
+                    return render_template("search_new_book.html", user=user, book=book_exist,
+                                           user_id=user_id)
+                else:
+                    flash(f"""Book already exists in the Admin library, would like to add in your library?""")
+                    return render_template("search_new_book_result.html", user=user, book=book_exist, user_id=user_id)
+        return render_template("search_new_book.html", user_id=user_id, user=user)
+    except Exception as error:
+        return render_template("error.html", error=error)
+
+
+@userBook_app.route("/add_book_to_user/<int:user_id>/<int:book_id>")
+def add_book_to_user(user_id, book_id):
+    try:
+        user = data_manager.get_user(user_id)
+        book = data_manager.get_book(book_id)
+        if book not in user.book:
+            user.book.append(book)
+            data_manager.commit_change()
+        return render_template("home.html", books=user.book, user_id=user_id)
+    except Exception as error:
+        return render_template("error.html", error=error)
+
+
+>>>>>>> b43b0d5f54deb0a1d2187be5d36d26574a8578eb
 @userBook_app.route("/user/<int:user_id>/book_update/<int:book_id>", methods=["GET", "POST"])
 def user_book_update(user_id, book_id):
     """Function to update the book details such title, description, rating etc."""

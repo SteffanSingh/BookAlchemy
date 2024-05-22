@@ -1,4 +1,5 @@
 from datetime import datetime
+<<<<<<< HEAD
 import json
 import requests
 from flask import Flask, render_template, request, redirect, url_for, flash
@@ -10,6 +11,20 @@ from data_managers.data_models import Review, Author, Book, db
 from Implementation.authors_app import authors_app
 from Implementation.review_app import review_app
 
+=======
+import requests
+from flask import Flask, render_template, request, redirect, url_for, flash
+from Implementation.users_books_app import userBook_app
+from Authentication.authentication import auth_app,login_manager
+from data_managers.data_manager_interface_sql import SQLiteDataManager
+from data_managers.data_models import Review, Author, Book, db
+from Implementation.authors_app import authors_app
+from Implementation.review_app import review_app
+import os
+
+
+# Get the current directory of app.py
+>>>>>>> b43b0d5f54deb0a1d2187be5d36d26574a8578eb
 
 app = Flask(__name__)
 app.register_blueprint(auth_app)
@@ -32,11 +47,21 @@ data_manager = SQLiteDataManager(app)
 @app.route("/")
 def home():
     """Return the list of all authors and limited books to display on homepage."""
+<<<<<<< HEAD
     books = session.query(Book).limit(18)
     authors = data_manager.list_all_authors()
     return render_template("home_page.html", books=books, authors=authors)
 
 
+=======
+
+    try:
+        books = data_manager.home_books()
+        authors = data_manager.list_all_authors()
+        return render_template("home_page.html", books=books, authors=authors)
+    except Exception as error:
+        return render_template("error.html", error=error)
+>>>>>>> b43b0d5f54deb0a1d2187be5d36d26574a8578eb
 
 
 if __name__ == "__main__":

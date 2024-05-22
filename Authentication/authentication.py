@@ -1,9 +1,13 @@
 from flask import Flask, request, flash, render_template, redirect, url_for, Blueprint
 from data_managers.data_manager_interface_sql import session, SQLiteDataManager, database
 from data_managers.data_models import User, Author, Book
+<<<<<<< HEAD
 from werkzeug.security import check_password_hash
 from flask_login import LoginManager, login_user, logout_user, login_required
 from sqlalchemy.orm.exc import NoResultFound
+=======
+from flask_login import LoginManager, login_user, logout_user, login_required
+>>>>>>> b43b0d5f54deb0a1d2187be5d36d26574a8578eb
 from flask_bcrypt import Bcrypt
 
 
