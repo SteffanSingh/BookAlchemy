@@ -34,25 +34,22 @@ A digital book library for book lovers to create and manage a vast collection of
 
 The Book Library project is structured as follows:
 
+├── .Authentication
 ├── .data
 ├── .data_manager
-├── .helpers
-├── .routes
+├── .Implementation
 ├── .static
 ├── .templates
-├── .env
 ├── app.py
 ├── readme.md
 ├── requirements.txt
 
-
+- `.Authentication`: Contains the python file for signup, signin, reset password.
 - `.data`: Contains the SQLite database file and other data files.
 - `.data_manager`: Includes data management modules for handling book data and queries.
-- `.helpers`: Helper modules, including authentication and utilities.
-- `.routes`: Routing modules for API endpoints and user handling.
+- `.Implementation`: Contains the implemntations python files for users-books, reviews and authors.
 - `.static`: CSS files and image/icon assets.
 - `.templates`: HTML templates for web pages.
-- `.env`: Configuration file for environment variables.
 - `app.py`: The main application file that connects routes and manages error handling.
 
 ## Features
