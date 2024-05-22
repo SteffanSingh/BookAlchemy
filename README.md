@@ -46,6 +46,7 @@ book-library/
 ├── readme.md
 ├── requirements.txt
 
+
 - `.data`: Contains the SQLite database file and other data files.
 - `.data_manager`: Includes data management modules for handling book data and queries.
 - `.helpers`: Helper modules, including authentication and utilities.
