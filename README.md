@@ -34,17 +34,16 @@ A digital book library for book lovers to create and manage a vast collection of
 
 The Book Library project is structured as follows:
 
-book-library//
-├── .data/
-├── .data_manager/
-├── .helpers/
-├── .routes/
-├── .static/
-├── .templates/
-├── .env/
-├── app.py/
-├── readme.md/
-├── requirements.txt/
+├── .data
+├── .data_manager
+├── .helpers
+├── .routes
+├── .static
+├── .templates
+├── .env
+├── app.py
+├── readme.md
+├── requirements.txt
 
 
 - `.data`: Contains the SQLite database file and other data files.
