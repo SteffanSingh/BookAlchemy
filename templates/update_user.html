@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" rel="stylesheet">
+    <link href="{{url_for('static', filename='CSS/update_user.css')}}" rel="stylesheet">
+
+    <style>
+    .alert {
+            margin-bottom: 20px; /* Adjust as needed */
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <a class="navbar-brand bg-info" href="/user/books/{{user_id}}"
+       style="
+                    margin-left:20px;
+                    color:yellow;border:none;
+                     border-radius:10px;
+                     padding:5px;  "> Back to Library </a>
+
+    <a class="  " href="/user/books/{{user_id}}"
+       style="text-decoration:none;
+                    border:none;
+                     border-radius:10px;
+                     padding:5px;  ">
+
+        <h1 style="color:yellow;padding-top:10px;text-decoration:none;margin-left:300px;
+
+         text-align:center;font-size:45px;">Book Library </h1>
+    </a>
+
+
+</nav>
+<div style="height:23px;margin-left:330px; ">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                        {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}" id="star-blink" role="alert"
+                             style="line-height: 1;margin-left:20px;color:green;
+                            font-size: 20px;">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div style="margin: 10px;">
+
+                <img src="{{ user.profile_image }}" alt="Update your profile image. "
+                     style="height: 100px; width: 80px;  "/>
+
+        </div>
+            <h4>  {{user.name}} </h4>
+            <h4>  {{user.email}} </h4>
+        </div>
+        <div class="col-md-6">
+            <div class="wrapper">
+                <form action="/update_user/{{user_id}}" method="POST">
+
+                    <label for="name">Name:</label>
+                    <input id="name" name="name" required type="text"><br>
+
+                    <label for="email">Email:</label>
+                    <input id="email" name="email" required  type="email"><br>
+
+                    <label for="profile">Profile Image</label>
+                    <input id="profile" name="profile" type="text"><br>
+
+                    <input class="btn btn-block btn-primary" id="update-user" type="submit"
+                           value="Update profile">
+
+
+                </form>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>

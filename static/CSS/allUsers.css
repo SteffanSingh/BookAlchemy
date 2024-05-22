@@ -86,3 +86,34 @@ background-color:purple;
             background-color: #dc3545;
             color: white;
         }
+
+.wrapper {
+            background-color: #fff;
+            padding: 10px; /* Adjusted padding */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px; /* Added margin to separate cards */
+        }
+        .card {
+            margin-bottom: 15px; /* Separate cards */
+        }
+        .card-body a {
+            display: inline-block; /* Make the links inline */
+            margin: 5px 0; /* Add margin for spacing */
+        }
+        .card-title {
+            font-size: 18px;
+        }
+        .card-body {
+            background-color: #fff;
+            padding: 10px;
+            margin:20px;
+        }
+    a:hover{
+        color:yellow;
+    }
+    button:hover{
+    color:yellow;
+    cursor:pointer;
+    background-color:grey;
+    }

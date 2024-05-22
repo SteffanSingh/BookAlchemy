@@ -20,13 +20,24 @@ def list_users():
     except Exception as error:
         return render_template("error.html")
 
+
 @userBook_app.route("/update_user/<int:user_id>", methods=["GET", "POST"])
 def update_user(user_id):
+    """Function to implement the user profile like   email, profile image."""
     try:
+        user_to_update = data_manager.get_user(user_id)
         if request.method == "POST":
-            pass
 
-        return render_template("update_user.html", user_id=user_id)
+            user_name = request.form.get("name")
+            user_email = request.form.get("email")
+            user_profile_image = request.form.get("profile")
+            user_to_update.name = user_name
+            user_to_update.email = user_email
+            user_to_update.profile_image = user_profile_image if user_profile_image else " "
+            data_manager.commit_change()
+            flash("profile has been updated successfully !")
+            return redirect(url_for("userBook_app.update_user", user_id=user_id))
+        return render_template("update_user.html", user_id=user_id,user=user_to_update)
     except Exception as error:
         return render_template("error.html")
 
@@ -143,7 +154,7 @@ def book_add(user_id):
             authors = data_manager.list_all_authors()
             flash(f"""Book "{title.title()}" has been successfully added !""")
             return redirect(url_for("userBook_app.book_add", user_id=user_id))
-        return render_template("add_book.html", user_id=user_id, user=user,authors=authors)
+        return render_template("add_book.html", user_id=user_id, user=user, authors=authors)
     except Exception as error:
         return render_template("error.html", error=error)
 
@@ -174,12 +185,11 @@ def user_book_update(user_id, book_id):
             book_to_update.author_id = author_id if update_author else book_to_update.author_id
             book_to_update.description = update_description if update_description else book_to_update.description
             book_to_update.rating = update_rating if update_rating else book_to_update.rating
-            print(type(update_book_cover))
-            print(update_book_cover)
             data_manager.commit_change()
             flash(f"""Book "{book_to_update.title}" has been updated successfully !""")
             return redirect(url_for("userBook_app.user_book_update", user_id=user_id, book_id=book_id))
-        return render_template("update_book.html",book=book_to_update, user=user, user_id=user_id, book_id=book_id, title=book_title,
+        return render_template("update_book.html", book=book_to_update, user=user, user_id=user_id, book_id=book_id,
+                               title=book_title,
                                authors=authors)
     except Exception as error:
         return render_template("error.html", error=error)
